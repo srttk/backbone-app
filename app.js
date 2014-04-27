@@ -9,6 +9,12 @@ $(function(){
 	    if (attrs.email=="") {
 	      return "Email field required";
 	    }
+	    //Validationg email filedwith RegExp
+	    regex_email=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	    if(!regex_email.test(attrs.email))
+	    {
+	    	return "Enter a valid email address";
+	    }
 	  },
 		defaults:{
 			name:'Someone',
@@ -45,7 +51,7 @@ $(function(){
 	var ContactView=Backbone.View.extend({
 		tagName:"div",
 		className:'list-group-item',
-		template:_.template('<h3 class="list-group-heading"><span class="glyphicon glyphicon-user"></span> <%= name %> <a href="#" class="pull-right remove"><span class="glyphicon glyphicon-remove"></span></a></h3><p><%= email %></p>'),
+		template:_.template('<h3 class="list-group-heading"><span class="glyphicon glyphicon-user" style="color:#95A5A6;"></span> <%= name %> <a href="#" class="pull-right remove"><span class="glyphicon glyphicon-remove" ></span></a></h3><p><span class="glyphicon glyphicon-envelope" style="color:#F1C40F;"></span> <a href="mailto:<%= email %>"><%= email %></a></p>'),
 		initialize:function(){
 			this.render();
 		},
@@ -58,7 +64,8 @@ $(function(){
 		},
 		removeme:function(){
 			this.model.destroy();
-			this.$el.remove();
+			this.$el.slideUp(function(){this.remove();});
+			//this.$el.remove();
 			console.log(contacts);
 		}
 	});
@@ -74,7 +81,6 @@ $(function(){
 			this.collection.each(this.addOne,this);
 		},
 		addOne:function(contact){
-			console.log('Lst');
 			var cv=new ContactView({model:contact});
 			this.$el.append(cv.render().el);
 
@@ -82,8 +88,23 @@ $(function(){
 	});
 
 	//Creating  contact collection instance in memmory
-	var contacts=new ContactList([{name:'Someone',email:'someone@someone.com'}]);
+	var contacts=new ContactList();
 	
+	// Invoking Fetch : Fetching JSON data from server
+	contacts.url='data.json';
+	contacts.fetch({
+		beforeSend:function(){
+			$(".list-group").html('<img src="img/loading.gif" alt="Loding.." />');
+		},
+		success:function(data)
+		{
+			console.log(data);
+		},
+		error:function(xhr){
+			$(".list-group").html('<p class="alert alert-danger alert-dismissable" >Connection Error<a class="close" data-dismiss="alert">&times;</p>');
+		}
+	});
+	// 
 
 	// App router
 
@@ -106,7 +127,6 @@ $(function(){
 				}else{
 					return false;
 				}
-				console.log(contacts);
 				$('#name').val('');$('#email').val('');
 				Backbone.history.navigate('',true);
 			});
