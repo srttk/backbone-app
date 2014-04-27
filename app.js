@@ -81,26 +81,58 @@ $(function(){
 
 		}
 	});
+
+	var About=Backbone.View.extend({
+		el:$('.list-group'),
+		initialize:function(){
+			this.render();
+		},
+		render:function(){
+			this.$el.html("Sarath");
+		}
+	})
+
+	//Creating global contact collection instance in memmory
 	var contacts=new ContactList([{name:'sarath',email:'sarath@hacksone.com'},{name:'Hacker',email:'sarath@hacksone.com'}]);
-	var appview=new ListView({collection:contacts});
-
-	var newcontact=new NewContactView();
-		newcontact.on('EventNew',function(attr){
-			//contacts.add(attr); //Direct adding to collection
-			mcon=new Contact(attr);
-			if(mcon.isValid()){
-				contacts.add(mcon);
-			}else{
-				return false;
-			}
-			console.log(contacts);
-			$('#name').val('');$('#email').val('');
-			Backbone.history.navigate('',true);
-		});
-
 	
 
+	// App router
 
+	var AppRouter=Backbone.Router.extend({
+		//Routes
+		routes:{
+			'':'home',
+			'about':'about'
+		},
+		//Home Handler
+		home:function(){
+			$("#newcontactform").show();
+			var appview=new ListView({collection:contacts});
+
+			var newcontact=new NewContactView();
+			newcontact.on('EventNew',function(attr){
+			//contacts.add(attr); //Direct adding to collection
+				mcon=new Contact(attr);
+				if(mcon.isValid()){
+					contacts.add(mcon);
+				}else{
+					return false;
+				}
+				console.log(contacts);
+				$('#name').val('');$('#email').val('');
+				Backbone.history.navigate('',true);
+			});
+		},
+		//About handler
+		about:function(){
+			//alert('About me');
+			$("#newcontactform").hide();
+			var about=new About();
+		}
+	});
+
+	var approuter=new AppRouter();
+	Backbone.history.start();
 
 
 });

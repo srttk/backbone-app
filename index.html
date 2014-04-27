@@ -24,10 +24,12 @@
 				<div class="col-md-12">
 					<ul class="nav nav-tabs">
 						<li><a href="#">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#">Source Cdoe</a></li>
 					</ul>
 				</div>
 		</div>
-		<div class="row">
+		<div class="row" id="appwindow">
 			<div class="col-md-4 col-md-offset-1" >
 				<div class="well contacts_wrap">
 				<div class="list-group" >
@@ -36,7 +38,7 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<fieldset><legend>New Contact</legend>
+				<fieldset id="newcontactform"><legend>New Contact</legend>
 				<form class="form-horizontal" id="newcontact">
 					<div class="form-group" >
 						<label class="control-label col-md-4">Name</label>
@@ -62,5 +64,8 @@
 		</div>
 	</div>
 </body>
+<script type="text/template" id="about_tpl">
+		<h1>Sarath</h1>
+</script>
 <script type="text/javascript" src="app.js"></script>
 </html>
