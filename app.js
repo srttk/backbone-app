@@ -31,8 +31,7 @@ $(function(){
 			this.render();
 		},
 		events:{
-			'click .btn':'createNew',
-			'keydown .btn':'createNew'
+			'click .btn':'createNew'
 		},
 		render:function(){
 			//this.$el.html("Hello World");
@@ -82,18 +81,8 @@ $(function(){
 		}
 	});
 
-	var About=Backbone.View.extend({
-		el:$('.list-group'),
-		initialize:function(){
-			this.render();
-		},
-		render:function(){
-			this.$el.html("Sarath");
-		}
-	})
-
-	//Creating global contact collection instance in memmory
-	var contacts=new ContactList([{name:'sarath',email:'sarath@hacksone.com'},{name:'Hacker',email:'sarath@hacksone.com'}]);
+	//Creating  contact collection instance in memmory
+	var contacts=new ContactList([{name:'Someone',email:'someone@someone.com'}]);
 	
 
 	// App router
@@ -101,8 +90,7 @@ $(function(){
 	var AppRouter=Backbone.Router.extend({
 		//Routes
 		routes:{
-			'':'home',
-			'about':'about'
+			'':'home'
 		},
 		//Home Handler
 		home:function(){
@@ -122,12 +110,6 @@ $(function(){
 				$('#name').val('');$('#email').val('');
 				Backbone.history.navigate('',true);
 			});
-		},
-		//About handler
-		about:function(){
-			//alert('About me');
-			$("#newcontactform").hide();
-			var about=new About();
 		}
 	});
 
