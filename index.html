@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" type="text/css" href="../assets/bs/css/bootstrap.css">
+<script type="text/javascript" src="../assets/js/jquery.js"></script>
+<script type="text/javascript" src="../assets/backbone/underscore.js"></script>
+<script type="text/javascript" src="../assets/backbone/backbone.js"></script>
+<style type="text/css">
+	.contacts_wrap{
+		margin-top: 25px;
+		margin-bottom: 0px;
+		padding: 1px;
+		/*min-height: 500px;*/
+		max-height: 500px;
+		overflow-y: auto;
+
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+				<div class="col-md-12">
+					<ul class="nav nav-tabs">
+						<li><a href="#">Home</a></li>
+					</ul>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-1" >
+				<div class="well contacts_wrap">
+				<div class="list-group" >
+
+				</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<fieldset><legend>New Contact</legend>
+				<form class="form-horizontal" id="newcontact">
+					<div class="form-group" >
+						<label class="control-label col-md-4">Name</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control input-sm" id="name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-4">Email</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control input-sm" id="email" />
+						</div>
+					</div>
+					<div class="form-group">
+						
+						<div class="col-md-6 col-md-offset-4">
+							<input type="button" class="btn btn-primary input-sm" value="Save" />
+						</div>
+					</div>
+				</form>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="app.js"></script>
+</html>
