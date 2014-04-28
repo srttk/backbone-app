@@ -1,0 +1,89 @@
+*{
+	/*background-color: #000;*/
+	color: #fff;
+}
+.color-shell{
+	color: #59AA02;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+
+}
+.jumbotron{
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #0f0f0f;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.nav-tabs>li>a:hover{
+	background-color: #0a0a0a;
+	border: solid 1px #0e110e;
+}
+.hack_theme{
+  background-color: #2C3E50;
+  /*  {weaspelt:#34495E,hd-bluyishgreen:#1ABC9C,carrot:#E67E22,cloud:#ECF0F1;}*/
+}
+.hack_color{
+  color: #5BAA08;
+  font-family: Courier;
+}
+.hack-red{
+  color: red;
+}
+.hacku{
+  text-align: center;
+}
+.hack_hero{
+  margin-top: 8%;
+}
+.hack_hover{
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.hack_hover:hover{
+  color: #789856;
+  cursor: pointer;
+  /**/
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+
+
+}
+.hack_hover small:hover{
+  color: #456895;
+}

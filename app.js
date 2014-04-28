@@ -135,6 +135,4 @@ $(function(){
 
 	var approuter=new AppRouter();
 	Backbone.history.start();
-
-
 });
